@@ -137,9 +137,9 @@ class AnimatedEquipmentCard extends StatelessWidget {
                             ),
                           ),
                           Text(
-                            bookingType == "half_day"
-                                ? '${equipment.halfDayRate}'
-                                : '${equipment.fulDayRate}',
+                              bookingType == "half_day"
+                                  ? '${equipment.halfDayRate}'
+                                  : '${equipment.fullDayRate}',
                             style: Theme.of(
                               context,
                             ).textTheme.bodySmall!.copyWith(
@@ -148,7 +148,7 @@ class AnimatedEquipmentCard extends StatelessWidget {
                             ),
                           ),
                           Text(
-                            ' Per Slot',
+                              ' Per Slot',
                             style: Theme.of(
                               context,
                             ).textTheme.bodySmall!.copyWith(
@@ -262,7 +262,8 @@ class AnimatedEquipmentCard extends StatelessWidget {
     );
   }
 
-  Widget _buildPrice() {
+  Widget _buildPrice() { 
+    if (bookingType == "half_day" || bookingType == "full_day") {
     return Expanded(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.end,
@@ -279,7 +280,10 @@ class AnimatedEquipmentCard extends StatelessWidget {
                   ),
                 ),
                 TextSpan(
-                  text: '${equipment.dayRate}',
+                    text:
+                        bookingType == "half_day"
+                            ? '${equipment.halfDayRate}'
+                            : '${equipment.fulDayRate}',
                   style: TextStyle(
                     color: AppColors.secondary,
                     fontWeight: FontWeight.bold,
@@ -290,11 +294,13 @@ class AnimatedEquipmentCard extends StatelessWidget {
             ),
           ),
           const Text(
-            'Per Day',
+              'Per Slot',
             style: TextStyle(color: Colors.grey, fontSize: 12),
           ),
         ],
       ),
     );
+  }
+    return SizedBox();
   }
 }
