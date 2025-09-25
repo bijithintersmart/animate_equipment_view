@@ -283,7 +283,7 @@ class AnimatedEquipmentCard extends StatelessWidget {
                     text:
                         bookingType == "half_day"
                             ? '${equipment.halfDayRate}'
-                            : '${equipment.fulDayRate}',
+                            : '${equipment.fullDayRate}',
                   style: TextStyle(
                     color: AppColors.secondary,
                     fontWeight: FontWeight.bold,
