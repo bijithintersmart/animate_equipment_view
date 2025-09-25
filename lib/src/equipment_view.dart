@@ -123,6 +123,7 @@ class AnimatedEquipmentCard extends StatelessWidget {
                       ),
                     ),
                     const SizedBox(height: 4),
+                    if (bookingType == "half_day" || bookingType == "full_day")
                     FittedBox(
                       child: Row(
                         children: [
