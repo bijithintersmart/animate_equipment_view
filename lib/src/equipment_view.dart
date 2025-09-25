@@ -12,6 +12,7 @@ class AnimatedEquipmentCard extends StatelessWidget {
     required this.viewType,
     required this.onTap,
     this.avilalblity = false,
+    required this.bookingType,
   });
 
   final dynamic equipment;
@@ -19,6 +20,7 @@ class AnimatedEquipmentCard extends StatelessWidget {
   final CardViewType viewType;
   final VoidCallback onTap;
   final bool? avilalblity;
+  final String bookingType;
 
   @override
   Widget build(BuildContext context) {
@@ -134,7 +136,9 @@ class AnimatedEquipmentCard extends StatelessWidget {
                             ),
                           ),
                           Text(
-                            '${equipment.dayRate}',
+                            bookingType == "half_day"
+                                ? '${equipment.halfDayRate}'
+                                : '${equipment.fulDayRate}',
                             style: Theme.of(
                               context,
                             ).textTheme.bodySmall!.copyWith(
@@ -143,7 +147,7 @@ class AnimatedEquipmentCard extends StatelessWidget {
                             ),
                           ),
                           Text(
-                            ' Per Day',
+                            ' Per Slot',
                             style: Theme.of(
                               context,
                             ).textTheme.bodySmall!.copyWith(
